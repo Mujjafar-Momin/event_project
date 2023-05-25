@@ -1,4 +1,4 @@
-import 'package:event_project/features/home/presentation/event_list/model/event.dart';
+import 'package:event_project/repository/model/event.dart';
 import 'package:flutter/material.dart';
 
 
@@ -11,7 +11,7 @@ class SliverImageAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverAppBar(
       leading:  IconButton(
-        onPressed: () {},
+        onPressed: () => Navigator.pop(context),
         icon: const Icon(Icons.arrow_back_ios),
       ),
       expandedHeight: MediaQuery.of(context).size.height*0.3,

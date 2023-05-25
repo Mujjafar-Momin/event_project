@@ -1,4 +1,4 @@
-import 'package:event_project/features/home/presentation/event_list/model/speaker.dart';
+import 'package:event_project/repository/model/speaker.dart';
 
 class Event {
   final String image;
@@ -10,9 +10,11 @@ class Event {
   final String? discountCost;
   final String? description;
   final List<Speaker> speakers;
+  final List<String> categories;
 
   Event(
-      {required this.image,
+      {required this.categories,
+      required this.image,
       required this.startDate,
       required this.endDate,
       required this.name,

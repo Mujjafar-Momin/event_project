@@ -1,11 +1,12 @@
 
-import 'package:event_project/features/home/presentation/event_list/model/mock.dart';
+import 'package:event_project/repository/model/mock.dart';
 import 'package:flutter/material.dart';
 
 class EventCategory extends StatelessWidget {
-  const EventCategory({Key? key, required this.activeCategory}) : super(key: key);
+  const EventCategory({Key? key, required this.activeCategory, required this.onCategorySelected}) : super(key: key);
 
   final String activeCategory;
+  final Function(String category)onCategorySelected;
 
   @override
   Widget build(BuildContext context) {
@@ -13,13 +14,14 @@ class EventCategory extends StatelessWidget {
       height: 40,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: listCategory.length,
+          itemCount: categories.length,
           itemBuilder: (context, index) {
             return EventCategoryItem(
-              text: listCategory[index],
-              isActive: listCategory[index] == activeCategory,
+              text: categories[index],
+              isActive: categories[index] == activeCategory,
               isFirst: index==0,
-              isLast: index == listCategory.length - 1,
+              isLast: index == categories.length - 1,
+              onTap:()=>onCategorySelected(categories[index]),
             );
           }),
     );
@@ -32,12 +34,13 @@ class EventCategoryItem extends StatelessWidget {
         required this.text,
         required this.isActive,
         required this.isLast,
-        required this.isFirst})
+        required this.isFirst, required this.onTap})
       : super(key: key);
   final String text;
   final bool isActive;
   final bool isLast;
   final bool isFirst;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +52,8 @@ class EventCategoryItem extends StatelessWidget {
         color: isActive ?const Color(0xFF214D42) : Colors.transparent,
       ),
       child: InkWell(
-        onTap: (){},
+        borderRadius: BorderRadius.circular(16),
+        onTap: ()=>onTap(),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Center(

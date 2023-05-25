@@ -1,5 +1,5 @@
 import 'package:event_project/extensions/event_extension.dart';
-import 'package:event_project/features/home/presentation/event_list/model/event.dart';
+import 'package:event_project/repository/model/event.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -40,7 +40,7 @@ class EventItem extends StatelessWidget {
                   style: GoogleFonts.poppins(
                       textStyle: Theme.of(context).textTheme.bodyMedium,
                       fontWeight: FontWeight.w600,
-                      fontSize: 24),
+                      ),
                 ),
                 const SizedBox(
                   height: 8,

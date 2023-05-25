@@ -1,4 +1,4 @@
-import 'package:event_project/features/home/presentation/event_list/model/event.dart';
+import 'package:event_project/repository/model/event.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

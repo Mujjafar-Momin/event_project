@@ -23,7 +23,7 @@ class PositionedButton extends StatelessWidget {
             ),
             backgroundColor: MaterialStateProperty.all(Colors.black87)
           ),
-          onPressed: () => onPressed?.call(),
+          onPressed: () => onPressed.call(),
           child: Text(
             text,
             style: GoogleFonts.poppins(
